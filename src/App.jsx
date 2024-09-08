@@ -89,11 +89,11 @@ const App = () => {
       <div
         style={{
           fontFamily: "Helvetica",
-          backgroundColor: "#e5e4df",
-          borderRadius: "3rem",
+          backgroundColor: "#ff7300",
+          borderRadius: "2rem",
           padding: "5rem",
           display: "inline-block",
-          color: "#8b9191",
+          color: "#676767",
         }}
       >
         <InputSection inputs={inputState} handleInputField={handleInputField} />

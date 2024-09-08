@@ -5,11 +5,10 @@ const NumberField = ({ name, value, onChange }) => {
     padding: "2rem",
     borderRadius: "0.5rem",
     border: "2px solid grey",
-    background: "#fff",
+    background: "#939393",
     outline: "none",
     marginRight: "2rem",
     fontSize: "1.3rem",
-    color: "#8b9191"
   };
   return (
     <input

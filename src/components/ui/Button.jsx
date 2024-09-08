@@ -11,7 +11,7 @@ const Button = ({ text, onClick, disabled, customStyle }) => {
     height: "4rem",
     width: "4rem",
     padding: "0.2rem 0.5rem",
-    backgroundColor: "#e4314e",
+    backgroundColor: "#939393",
     borderRadius: "0.2rem",
     cursor: "pointer",
     marginRight: "1rem",

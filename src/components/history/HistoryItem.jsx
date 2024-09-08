@@ -1,13 +1,16 @@
 import PropTypes from "prop-types";
+import Button from "../ui/Button";
 
 const HistoryItem = ({ history, restoreHistory, disabled }) => {
   return (
     <li key={history.id}>
       {history.inputs.a} {history.operation} {history.inputs.b} ={" "}
       {history.result} <small>{history.time}</small>{" "}
-      <button disabled={disabled} onClick={() => restoreHistory(history)}>
-        Restore
-      </button>
+      <Button
+        onClick={() => restoreHistory(history)}
+        disabled={disabled}
+        text="Restore"
+      />
     </li>
   );
 };
