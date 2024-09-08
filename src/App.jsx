@@ -1,7 +1,7 @@
 import { useState } from "react";
-import History from "./components/History";
-import InputField from "./components/InputField";
-import Button from "./components/Button";
+import InputSection from "./components/inputs/InputSection";
+import OperationSection from "./components/operations/OperationSection";
+import HistorySection from "./components/history/HistorySection";
 
 /**
  * TODO
@@ -32,16 +32,16 @@ const App = () => {
     setInputState({ ...initialInputState });
     setResult(0);
   };
-  const handleArithmaticOpearation = (operation) => {
+  const handleArithmeticOperation = (operation) => {
     if (!inputState.a || !inputState.b) {
       alert("invalid inut");
       return;
     }
-    const arithmaticOperation = new Function(
+    const arithmeticOperation = new Function(
       "operation",
       `return ${inputState.a} ${operation} ${inputState.b}`
     );
-    const result = arithmaticOperation(operation);
+    const result = arithmeticOperation(operation);
     // Instead of creating a dynamic function the eval function can be used to calculate the result
     setResult(result);
     const history = {
@@ -79,40 +79,33 @@ const App = () => {
     });
 
   return (
-    <div style={{ width: "50%", margin: "0 auto" }}>
-      <h1>Result {result}</h1>
-      <div>
-        <h3>Input Numbers</h3>
-        <InputField
-          inputState={inputState}
-          handleInputField={handleInputField}
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div
+        style={{
+          fontFamily: "Helvetica",
+          backgroundColor: "#e5e4df",
+          borderRadius: "3rem",
+          padding: "5rem",
+          display: "inline-block",
+          color: "#8b9191",
+        }}
+      >
+        <InputSection inputs={inputState} handleInputField={handleInputField} />
+        <p style={{ fontSize: "2rem" }}>
+          Result <strong>{result}</strong>
+        </p>
+        <OperationSection
+          handleArithmeticOperation={handleArithmeticOperation}
+          handleClearOperation={handleClearOperation}
         />
+        <HistorySection histories={histories} restoreHistory={restoreHistory} />
       </div>
-      <div>
-        <h3>Operations</h3>
-        <Button
-          handleArithmaticOpearation={handleArithmaticOpearation}
-          operationType="+"
-        />
-        <Button
-          handleArithmaticOpearation={handleArithmaticOpearation}
-          operationType="-"
-        />
-        <Button
-          handleArithmaticOpearation={handleArithmaticOpearation}
-          operationType="*"
-        />
-        <Button
-          handleArithmaticOpearation={handleArithmaticOpearation}
-          operationType="/"
-        />
-        <Button
-          handleArithmaticOpearation={handleArithmaticOpearation}
-          operationType="%"
-        />
-        <button onClick={handleClearOperation}>clear</button>
-      </div>
-      <History histories={histories} restoreHistory={restoreHistory} />
     </div>
   );
 };
