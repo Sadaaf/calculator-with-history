@@ -1,4 +1,7 @@
 import { useState } from "react";
+import History from "./components/History";
+import InputField from "./components/InputField";
+import Button from "./components/Button";
 
 /**
  * TODO
@@ -80,42 +83,36 @@ const App = () => {
       <h1>Result {result}</h1>
       <div>
         <h3>Input Numbers</h3>
-        <input
-          type="number"
-          name="a"
-          value={inputState.a}
-          onChange={handleInputField}
-        />
-        <input
-          type="number"
-          name="b"
-          value={inputState.b}
-          onChange={handleInputField}
+        <InputField
+          inputState={inputState}
+          handleInputField={handleInputField}
         />
       </div>
       <div>
         <h3>Operations</h3>
-        <button onClick={() => handleArithmaticOpearation("+")}>+</button>
-        <button onClick={() => handleArithmaticOpearation("-")}>-</button>
-        <button onClick={() => handleArithmaticOpearation("*")}>*</button>
-        <button onClick={() => handleArithmaticOpearation("/")}>/</button>
-        <button onClick={() => handleArithmaticOpearation("%")}>%</button>
+        <Button
+          handleArithmaticOpearation={handleArithmaticOpearation}
+          operationType="+"
+        />
+        <Button
+          handleArithmaticOpearation={handleArithmaticOpearation}
+          operationType="-"
+        />
+        <Button
+          handleArithmaticOpearation={handleArithmaticOpearation}
+          operationType="*"
+        />
+        <Button
+          handleArithmaticOpearation={handleArithmaticOpearation}
+          operationType="/"
+        />
+        <Button
+          handleArithmaticOpearation={handleArithmaticOpearation}
+          operationType="%"
+        />
         <button onClick={handleClearOperation}>clear</button>
       </div>
-      <h3>History</h3>
-      {histories.length === 0 ? (
-        <p>There is no history</p>
-      ) : (
-        <ul>
-          {histories.map((history) => (
-            <li key={history.id}>
-              {history.inputs.a} {history.operation} {history.inputs.b} ={" "}
-              {history.result} <small>{history.time}</small>{" "}
-              <button onClick={() => restoreHistory(history)}>Restore</button>
-            </li>
-          ))}
-        </ul>
-      )}
+      <History histories={histories} restoreHistory={restoreHistory} />
     </div>
   );
 };
