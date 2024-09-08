@@ -32,7 +32,7 @@ HistorySection.propTypes = {
       }),
       operation: PropTypes.string.isRequired,
       result: PropTypes.number.isRequired,
-      time: PropTypes.object.isRequired,
+      time: PropTypes.string.isRequired,
     })
   ).isRequired,
   restoreHistory: PropTypes.func.isRequired,

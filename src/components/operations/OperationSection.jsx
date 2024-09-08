@@ -34,6 +34,11 @@ const OperationSection = ({
     },
     {
       id: shortid.generate(),
+      text: "**",
+      onClick: () => handleArithmeticOperation("**"),
+    },
+    {
+      id: shortid.generate(),
       text: "Clear",
       onClick: handleClearOperation,
     },
