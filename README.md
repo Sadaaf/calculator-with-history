@@ -1,4 +1,11 @@
 # A simple calculator app with history functionality
 
-This app can be run using `npm run dev` command locally.
-It is a simple project demonstrating how to store UI data in json format
+Prerequisite: `nodejs`
+To run the app use the commands
+
+```bash
+git clone https://github.com/Sadaaf/calculator-with-history.git
+cd ./calculator-with-history
+npm install
+npm run dev
+```
